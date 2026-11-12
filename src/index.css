@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-clinic-green: #2D9C36;
+    --color-clinic-green-dark: #122F1B;
+    --color-clinic-green-deep: #091A0E;
+    --color-clinic-cream: #FAF7F2;
+    --color-clinic-slate: #1E2B22;
+    --color-clinic-muted: #55695C;
+    --color-clinic-gold: #C5A880;
+  }
+
+  html {
+    font-family: 'Raleway', sans-serif;
+    color: var(--color-clinic-slate);
+    background-color: var(--color-clinic-cream);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar matching clinic brand */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF7F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2D9C36;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #122F1B;
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid #2D9C36;
+    outline-offset: 3px;
+  }
+}
+
+/* Custom editorial transitions & keyframes */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGently {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.animate-fade-slide {
+  animation: fadeInSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-gentle-pulse {
+  animation: pulseGently 3s ease-in-out infinite;
+}
+
+/* Fluid responsive measure */
+.content-measure {
+  max-width: 68ch;
+}
